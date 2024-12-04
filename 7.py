@@ -14,13 +14,12 @@ my_info = {
 print(my_info)
 
 myinfo_types = {}
-
-for key in my_info:
-    val = my_info[key]
-    if type(val) == my_info:
-        for sub_key in val:
-            sub_val = val[sub_key]  
-            myinfo_types[sub_key] = type(sub_val)  
+# Проходимо по ключам та значенням my_info
+for key, val in my_info.items():  
+    if isinstance(val, dict):  # Якщо значення — словник
+        for sub_key, sub_val in val.items():  # Проходимо по вкладеному словнику
+            myinfo_types[sub_key] = type(sub_val)  # Додаємо тип вкладених значень
     else:
-        myinfo_types[key] = type(val)
+        myinfo_types[key] = type(val)  # Якщо значення просте, додаємо його тип
+
 print(myinfo_types)
