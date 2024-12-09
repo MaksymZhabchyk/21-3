@@ -1,25 +1,12 @@
-my_info = {
-    "name": "Maksym",
-    "age": 16,
-    "details": {
-        "hobby": "jiujitsu",
-        "favorite_language": "Ukraine-English",
-        "experience_years": 1,
-        "city": "Lutsk",
-        "sport": "jiujitsu"
-    },
-    "profession": "computer engineer"
-}
-
-print(my_info)
-
-myinfo_types = {}
-# Проходимо по ключам та значенням my_info
-for key, val in my_info.items():  
-    if isinstance(val, dict):  # Якщо значення — словник
-        for sub_key, sub_val in val.items():  # Проходимо по вкладеному словнику
-            myinfo_types[sub_key] = type(sub_val)  # Додаємо тип вкладених значень
+dict1 = {1:"Roblox", 2:"Dota 2", 3:{3.1: "Crysis", 3.2: "Call of duty", 3.3: "Minecraft", 3.4: "Dark and Darker", 3.5: "Diablo 4"}, 4: "WOW"}
+print(dict1)
+dict_types = {}
+for key in dict1:
+    val = dict1[key]
+    if type(val) == dict:
+        for sub_key in val:
+            sub_val = val[sub_key]  
+            dict_types[sub_key] = type(sub_val)  
     else:
-        myinfo_types[key] = type(val)  # Якщо значення просте, додаємо його тип
-
-print(myinfo_types)
+        dict_types[key] = type(val)
+print(dict_types)
